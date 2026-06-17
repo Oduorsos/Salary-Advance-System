@@ -10,7 +10,7 @@ import {
     import dashboardImg from "../assets/images/dashboard.jpg";
     import securityImg from "../assets/images/security.jpg";
 
-    export default function FeatureShowcase() {
+    export default function featureshowcase() {
     const [activeFeature, setActiveFeature] = useState(0);
 
     const features = [
