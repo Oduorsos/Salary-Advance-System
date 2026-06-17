@@ -1,10 +1,10 @@
-import HeroSection from "../components/hero";
-import ProblemSolution from "../components/solutions";
-import HowItWorks from "../components/How_it_work";
-import WhoWeServe from "../components/Services";
+import HeroSection from "../Components/hero";
+import ProblemSolution from "../Components/solutions";
+import HowItWorks from "../Components/How_it_work";
+import WhoWeServe from "../Components/Services";
 import FeatureShowcase from "../Components/Featureshowcase";
-import WhyChooseUs from "../components/whychooseus";
-import FAQs from "../components/faqs";
+import WhyChooseUs from "../Components/whychooseus";
+import FAQs from "../Components/faqs";
 
 export default function Home() {
     return (
