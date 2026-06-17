@@ -13,7 +13,6 @@ import {
     import { Navigation, Autoplay } from "swiper/modules";
 
     import "swiper/css";
-    import "swiper/css/autoplay"
     import "swiper/css/navigation";
 
     export default function WhoWeServe() {
@@ -76,95 +75,100 @@ import {
     ];
 
     return (
-        <section className="py-18 bg-white">
+        <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
-
-            <div className="text-center mb-20">
+            {/* Header */}
+            <div className="text-center mb-16">
             <span className="text-blue-600 font-semibold uppercase tracking-widest">
                 Who We Serve
             </span>
 
-            <h2 className="text-4xl font-bold text-[#1845B5] mt-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#1845B5] mt-4">
                 Built For Everyone
-                <span className="text-blue-500">
-                {" "}In The Ecosystem
-                </span>
+                <span className="text-blue-500"> In The Ecosystem</span>
             </h2>
 
             <p className="max-w-3xl mx-auto mt-6 text-lg text-gray-600">
-                Our platform connects employees, employers, HR departments,
-                and financial institutions to create a responsible and
-                sustainable salary advance ecosystem.
+                Our platform connects employees, employers, HR departments, and
+                financial institutions to create a responsible and sustainable
+                salary advance ecosystem.
             </p>
             </div>
 
             {/* Slider */}
-            <div className="flex justify-between items-center gap-10">
-            <div className="flex justify-between items-center mb-8">
-                <button className="who-prev w-12 h-12 rounded-full border border-blue-200 bg-[#1845B5] text-white flex items-center justify-center hover:bg-[#1845B5] hover:text-white transition-all duration-300 shadow-sm">
-                    <ArrowLeft />
-                </button>
-            </div>
+            <div className="relative">
             <Swiper
                 modules={[Navigation, Autoplay]}
                 navigation={{
-                    prevEl: ".who-prev",
-                    nextEl: ".who-next",
+                prevEl: ".process-prev",
+                nextEl: ".process-next",
                 }}
+                loop={true}
+                speed={800}
                 autoplay={{
-                    delay: 5000,
-                    disableOnInteraction: false,
+                delay: 3500,
+                disableOnInteraction: false,
                 }}
-                loop
-                spaceBetween={30}
+                spaceBetween={24}
                 breakpoints={{
-                    0: {
+                0: {
                     slidesPerView: 1,
-                    },
-                    1024: {
+                },
+                640: {
+                    slidesPerView: 1.2,
+                },
+                768: {
                     slidesPerView: 2,
-                    },
+                },
+                1024: {
+                    slidesPerView: 3,
+                },
                 }}
-                >
-
-            {audiences.map((item, index) => (
+            >
+                {audiences.map((item, index) => (
                 <SwiperSlide key={index}>
-                <div
+                    <div
                     className="
-                    group
                     bg-white
                     rounded-3xl
-                    p-8
-                    border
-                    border-blue-100
+                    p-6 md:p-8
                     shadow-sm
                     hover:shadow-2xl
                     transition-all
                     duration-500
                     hover:-translate-y-2
+                    border
+                    border-gray-100
                     h-full
-                "
-                >
-                    <div
-                    className={`w-14 h-14 rounded-2xl bg-gradient-to-r ${item.color}
-                    flex items-center justify-center text-white mb-6`}
+                    min-h-[420px]
+                    flex
+                    flex-col
+                    "
                     >
-                    {item.icon}
+                    {/* Icon */}
+                    <div
+                        className={`w-14 h-14 rounded-2xl bg-gradient-to-r ${item.color}
+                        flex items-center justify-center text-white mb-6`}
+                    >
+                        {item.icon}
                     </div>
 
+                    {/* Title */}
                     <h3 className="text-2xl font-bold text-[#1845B5]">
-                    {item.title}
+                        {item.title}
                     </h3>
 
-                    <p className="text-gray-600 mt-4 leading-8">
-                    {item.description}
+                    {/* Description */}
+                    <p className="text-gray-600 mt-4 leading-8 flex-grow">
+                        {item.description}
                     </p>
 
+                    {/* Benefits */}
                     <div className="grid grid-cols-2 gap-3 mt-6">
-                    {item.benefits.map((benefit, i) => (
+                        {item.benefits.map((benefit, i) => (
                         <div
-                        key={i}
-                        className="
+                            key={i}
+                            className="
                             bg-blue-50
                             rounded-xl
                             px-4
@@ -172,23 +176,53 @@ import {
                             text-sm
                             font-medium
                             text-gray-700
-                        "
+                            "
                         >
-                        ✓ {benefit}
+                            ✓ {benefit}
                         </div>
-                    ))}
+                        ))}
                     </div>
-
-                    <button className="mt-6 flex items-center gap-2 text-blue-600 font-semibold group-hover:gap-4 transition-all">
-                    Learn More
-                    </button>
-                </div>
+                    </div>
                 </SwiperSlide>
-            ))}
+                ))}
             </Swiper>
-            <div>
-                <button className="who-next w-12 h-12 rounded-full border border-blue-200 bg-[#1845B5] text-white flex items-center justify-center hover:bg-[#1845B5] hover:text-white transition-all duration-300 shadow-sm">
-                    <ArrowRight />
+
+            {/* Navigation Buttons */}
+            <div className="flex justify-center gap-4 mt-10">
+                <button
+                className="
+                process-prev
+                w-12 h-12
+                rounded-full
+                bg-[#1845B5]
+                text-white
+                flex items-center
+                justify-center
+                shadow-lg
+                hover:scale-110
+                transition-all
+                duration-300
+                "
+                >
+                <ArrowLeft size={20} />
+                </button>
+
+                <button
+                className="
+                process-next
+                w-12 h-12
+                rounded-full
+                bg-[#1845B5]
+                text-white
+                flex items-center
+                justify-center
+                shadow-lg
+                hover:scale-110
+                transition-all
+                duration-300
+                "
+                >
+                <ArrowRight size={20} />
                 </button>
             </div>
             </div>
