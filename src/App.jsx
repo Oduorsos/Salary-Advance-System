@@ -8,7 +8,7 @@ import howitwork from "./pages/how-it-works";
 import solutions from "./pages/solutions";
 import whoweserve from "./pages/who-we-serve";
 import partnersMarquee from "./Components/partnerships";
-import Footer from "./components/Footer";
+import footer from "./components/footer";
 
 function App() {
   return (
@@ -23,7 +23,7 @@ function App() {
         <Route path="/solutions" element={<solutions />} />
       </Routes>
       <partnersMarquee />
-      <Footer />
+      <footer />
     </>
   );
 }
