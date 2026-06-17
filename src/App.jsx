@@ -1,28 +1,28 @@
 import { Routes, Route } from "react-router-dom";
 
-import Navbar from "./components/navbar";
-import Home from "./pages/home";
-import AboutUs from "./pages/about-us";
-import ContactUs from "./pages/contact-us";
-import HowItWork from "./pages/how-it-works";
-import Solutions from "./pages/solutions";
-import WhoWeServe from "./pages/who-we-serve";
-import PartnersMarquee from "./Components/partnerships";
+import navbar from "./components/navbar";
+import home from "./pages/home";
+import aboutus from "./pages/about-us";
+import contactUs from "./pages/contact-us";
+import howitwork from "./pages/how-it-works";
+import solutions from "./pages/solutions";
+import whoweserve from "./pages/who-we-serve";
+import partnersMarquee from "./Components/partnerships";
 import Footer from "./components/Footer";
 
 function App() {
   return (
     <>
-      <Navbar />
+      <navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about-us" element={<AboutUs />} />
-        <Route path="/contact-us" element={<ContactUs />} />
-        <Route path="/how-it-works" element={<HowItWork />} />
-        <Route path="/who-we-serve" element={<WhoWeServe />} />
-        <Route path="/solutions" element={<Solutions />} />
+        <Route path="/" element={<home />} />
+        <Route path="/about-us" element={<aboutus />} />
+        <Route path="/contact-us" element={<contactUs />} />
+        <Route path="/how-it-works" element={<howitwork />} />
+        <Route path="/who-we-serve" element={<whoweserve />} />
+        <Route path="/solutions" element={<solutions />} />
       </Routes>
-      <PartnersMarquee />
+      <partnersMarquee />
       <Footer />
     </>
   );
