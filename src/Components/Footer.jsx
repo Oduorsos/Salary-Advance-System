@@ -15,7 +15,7 @@ import { Link } from "react-router-dom";
 
 import logo from "../assets/logos/logo1.jpeg";
 
-    export default function Footer() {
+    export default function footer() {
     return (
         <footer className="bg-[#1845B5] text-white">
 
