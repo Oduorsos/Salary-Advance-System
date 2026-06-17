@@ -31,22 +31,29 @@ export default function Navbar() {
     return (
         <header className="fixed top-0 left-0 w-full z-50 bg-[#1845B5] border-b border-white/10 shadow-lg">
             <div className="max-w-8xl mx-auto px-4 lg:px-10">
-                <div className="h-24 flex items-center justify-between">
+                 <div className="h-16 sm:h-20 lg:h-24 flex items-center justify-between">
 
                     {/* LOGO */}
-                    <Link to="/" className="flex items-center gap-5">
+                    <Link to="/" className="flex items-center gap-3 lg:gap-5">
                         <img
                             src={logo}
                             alt="Salary Advance"
-                            className="w-56 h-16 rounded-xl object-cover"
+                            className="
+                            w-12 h-12
+                            sm:w-16 sm:h-16
+                            lg:w-56 lg:h-16
+                            object-contain
+                            rounded-xl
+                            "
                         />
 
-                        <div>
-                            <h1 className="font-bold text-lg text-white">
-                                Salary Advance
+                        <div className="leading-tight">
+                            <h1 className="font-bold text-sm sm:text-base lg:text-lg text-white">
+                            Salary Advance
                             </h1>
-                            <p className="text-xs text-blue-300">
-                                Powered by SwizzSoft
+
+                            <p className="text-[10px] sm:text-xs text-blue-300">
+                            Powered by SwizzSoft
                             </p>
                         </div>
                     </Link>
