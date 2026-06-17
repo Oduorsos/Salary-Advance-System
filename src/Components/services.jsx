@@ -16,7 +16,7 @@ import {
     import "swiper/css/autoplay"
     import "swiper/css/navigation";
 
-    export default function whoweserve() {
+    export default function Whoweserve() {
     const audiences = [
         {
         icon: <Users size={30} />,
