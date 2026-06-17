@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 
-import Navbar from "./components/navbar";
+import Navbar from "./Components/navbar";
 import Home from "./pages/home";
 import AboutUs from "./pages/about-us";
 import ContactUs from "./pages/contact-us";
@@ -8,7 +8,7 @@ import HowItWork from "./pages/how-it-works";
 import Solutions from "./pages/solutions";
 import WhoWeServe from "./pages/who-we-serve";
 import PartnersMarquee from "./Components/partnerships";
-import Footer from "./components/Footer";
+import Footer from "./Components/Footer";
 
 function App() {
   return (
