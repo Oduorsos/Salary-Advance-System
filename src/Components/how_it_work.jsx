@@ -16,7 +16,7 @@ import { useState, useEffect } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
 
-    export default function howitworks() {
+    export default function Howitworks() {
     const [isFreeMode, setIsFreeMode] = useState(true);
 
         useEffect(() => {
