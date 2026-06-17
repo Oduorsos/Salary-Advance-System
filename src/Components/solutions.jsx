@@ -92,73 +92,83 @@ import {
             </div>
 
             {/* ================= MOBILE ================= */}
-            <div className="lg:hidden">
-            <Swiper
-                modules={[Autoplay, Pagination]}
-                slidesPerView={1.1}
-                spaceBetween={16}
-                speed={800}
-                pagination={{
-                clickable: true,
-                }}
-                autoplay={{
-                delay: 3500,
-                disableOnInteraction: false,
-                }}
-                className="
-                !overflow-visible
-                pb-10
-                [&_.swiper-pagination]:!bottom-[-34px]
-                [&_.swiper-pagination]:flex
-                [&_.swiper-pagination]:justify-center
-                [&_.swiper-pagination-bullet]:bg-gray-300
-                [&_.swiper-pagination-bullet]:opacity-100
-                [&_.swiper-pagination-bullet]:w-2
-                [&_.swiper-pagination-bullet]:h-2
-                [&_.swiper-pagination-bullet]:transition-all
-                [&_.swiper-pagination-bullet-active]:bg-[#1845B5]
-                [&_.swiper-pagination-bullet-active]:w-6
-                [&_.swiper-pagination-bullet-active]:rounded-full
-                "
-            >
-                {solutions.map((item, index) => (
-                <SwiperSlide key={index}>
-                    <div
-                    style={{ backgroundColor: item.color }}
-                    className="
-                        rounded-[28px]
-                        p-8
-                        text-white
-                        min-h-[320px]
-                        shadow-xl
-                        flex
-                        flex-col
-                        justify-between
-                    "
-                    >
-                    <div>
+            <div className="lg:hidden relative">
+                <Swiper
+                    modules={[Autoplay, Pagination]}
+                    slidesPerView={1.05}
+                    centeredSlides={true}
+                    spaceBetween={18}
+                    speed={900}
+                    grabCursor={true}
+                    loop={true}
+                    autoplay={{
+                    delay: 3200,
+                    disableOnInteraction: false,
+                    }}
+                    onSlideChange={(swiper) => setActive(swiper.realIndex)}
+                    className="pb-6"
+                >
+                    {solutions.map((item, index) => (
+                    <SwiperSlide key={index}>
+                        <div
+                        style={{ backgroundColor: item.color }}
+                        className="
+                            rounded-[30px]
+                            p-8
+                            text-white
+                            shadow-xl
+                            min-h-[340px]
+                            flex
+                            flex-col
+                            justify-between
+                        "
+                        >
+                        {/* Icon */}
                         <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center mb-6 backdrop-blur-md">
-                        {item.icon}
+                            {item.icon}
                         </div>
 
-                        <h3 className="text-2xl font-bold leading-tight">
-                        {item.heading}
-                        </h3>
+                        {/* Content */}
+                        <div>
+                            <h3 className="text-2xl font-bold leading-tight">
+                            {item.heading}
+                            </h3>
 
-                        <p className="mt-4 text-white/80 leading-relaxed">
-                        {item.description}
-                        </p>
-                    </div>
+                            <p className="mt-4 text-white/80 leading-relaxed">
+                            {item.description}
+                            </p>
+                        </div>
 
-                    <div className="mt-8">
-                        <span className="inline-flex bg-white/10 backdrop-blur-md px-4 py-2 rounded-full text-sm">
-                        {item.feature}
-                        </span>
-                    </div>
-                    </div>
-                </SwiperSlide>
-                ))}
-            </Swiper>
+                        {/* Feature */}
+                        <div className="mt-8">
+                            <span className="inline-flex bg-white/10 backdrop-blur-md px-4 py-2 rounded-full text-sm">
+                            {item.feature}
+                            </span>
+                        </div>
+                        </div>
+                    </SwiperSlide>
+                    ))}
+                </Swiper>
+
+                {/* ================= CUSTOM DOTS (OUTSIDE SWIPER) ================= */}
+                <div className="flex justify-center gap-2 mt-6">
+                    {solutions.map((_, index) => (
+                    <button
+                        key={index}
+                        onClick={() => setActive(index)}
+                        className={`
+                        transition-all duration-300
+                        h-2
+                        rounded-full
+                        ${
+                            active === index
+                            ? "w-6 bg-[#1845B5]"
+                            : "w-2 bg-gray-300"
+                        }
+                        `}
+                    />
+                    ))}
+                </div>
             </div>
 
             {/* ================= DESKTOP ================= */}
