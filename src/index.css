@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@keyframes showroomSpin {
+  0% {
+    transform: perspective(1200px) rotateY(0deg);
+  }
+
+  100% {
+    transform: perspective(1200px) rotateY(360deg);
+  }
+}
+
+.phone-spin {
+  animation: showroomSpin 12s linear infinite;
+  transform-style: preserve-3d;
+}
+
+@keyframes cardFloatLeft {
+  0%,100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes cardFloatRight {
+  0%,100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(15px);
+  }
+}
+
+@keyframes pulseGlow {
+  0%,100% {
+    box-shadow: 0 0 30px rgba(59,130,246,.25);
+  }
+  50% {
+    box-shadow: 0 0 60px rgba(59,130,246,.5);
+  }
+}
+
+.phone-animation {
+  animation: floatPhone 8s ease-in-out infinite;
+}
+
+.card-left {
+  animation: cardFloatLeft 4s ease-in-out infinite;
+}
+
+.card-right {
+  animation: cardFloatRight 4s ease-in-out infinite;
+}
+
+.phone-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
