@@ -187,7 +187,8 @@ import {
                 toward responsible, employer-backed salary advances.
                 </p>
 
-                <button className="mt-8 bg-white text-[#1845B5] px-8 py-4 rounded-full font-semibold hover:scale-105 transition">
+                <button onClick={() => (window.location.href = "tel:*250*79#")}
+                    className="mt-8 bg-white text-[#1845B5] px-8 py-4 rounded-full font-semibold hover:scale-105 transition">
                 Dial *250*79#
                 </button>
 
