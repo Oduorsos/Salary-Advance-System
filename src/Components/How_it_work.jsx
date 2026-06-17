@@ -17,7 +17,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 
     export default function HowItWorks() {
-    const [isFreeMode, setIsFreeMode] = useState(true);
+    const [ isFreeMode, setIsFreeMode] = useState(true);
 
         useEffect(() => {
         const timer = setTimeout(() => {
@@ -88,104 +88,148 @@ import "swiper/css/navigation";
                 Process
             </span>
 
-            <h2 className="text-4xl font-bold text-[#2849CA] mt-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#2849CA] mt-4">
                 How It Works
             </h2>
 
-            <p className="max-w-3xl mx-auto mt-6 text-lg text-gray-600">
+            <p className="max-w-3xl mx-auto mt-6 text-base md:text-lg text-gray-600">
                 Our salary advance platform follows a structured verification
                 process that protects employees, employers, and lending partners
                 while ensuring responsible access to earned income.
             </p>
             </div>
 
-            <div className="flex justify-between items-center gap-10">
-            <div className="flex justify-between items-center mb-8">
-                <button className="process-prev w-12 h-12 rounded-full border border-blue-200 bg-[#1845B5] text-white flex items-center justify-center hover:bg-[#1845B5] hover:text-white transition-all duration-300 shadow-sm">
-                    <ArrowLeft />
-                </button>
-            </div>
-            <Swiper
-                modules={[Navigation, Autoplay]}
-                navigation={{
-                    prevEl: ".process-prev",
-                    nextEl: ".process-next",
-                }}
-                loop={true}
-                speed={isFreeMode ? 1000 : 800} // slow glide vs normal slide
-                autoplay={{
-                    delay: isFreeMode ? 0 : 1000,
-                    disableOnInteraction: false,
-                }}
-                freeMode={isFreeMode}
-                freeModeMomentum={false}
-                spaceBetween={30}
-                breakpoints={{
-                    0: { slidesPerView: 1 },
-                    768: { slidesPerView: 2 },
-                    1024: { slidesPerView: 3 },
-                }}
+            {/* Process Slider */}
+            <div className="relative">
+
+                <Swiper
+                    modules={[Navigation, Autoplay]}
+                    navigation={{
+                        prevEl: ".process-prev",
+                        nextEl: ".process-next",
+                    }}
+                    freeMode={isFreeMode}
+                    loop={true}
+                    speed={800}
+                    autoplay={{
+                        delay: 3500,
+                        disableOnInteraction: false,
+                    }}
+                    spaceBetween={20}
+                    breakpoints={{
+                        0: {
+                            slidesPerView: 1,
+                        },
+                        640: {
+                            slidesPerView: 1.2,
+                        },
+                        768: {
+                            slidesPerView: 2,
+                        },
+                        1024: {
+                            slidesPerView: 3,
+                        },
+                    }}
                 >
-                {steps.map((step, index) => (
-                    <SwiperSlide key={index}>
-                    <div
+                    {steps.map((step, index) => (
+                        <SwiperSlide key={index}>
+                            <div
+                                className="
+                                bg-white
+                                rounded-3xl
+                                p-6 md:p-8
+                                shadow-sm
+                                hover:shadow-2xl
+                                transition-all
+                                duration-500
+                                hover:-translate-y-2
+                                border
+                                border-gray-100
+                                h-full
+                                min-h-[420px]
+                                "
+                            >
+                                <div
+                                    className={`
+                                    w-16 h-16
+                                    rounded-2xl
+                                    bg-gradient-to-r
+                                    ${step.color}
+                                    text-white
+                                    flex items-center justify-center
+                                    mb-6
+                                    `}
+                                >
+                                    {step.icon}
+                                </div>
+
+                                <span className="text-sm font-bold text-blue-600">
+                                    STEP {index + 1}
+                                </span>
+
+                                <h3 className="text-xl md:text-2xl font-bold text-[#1845B5] mt-3">
+                                    {step.title}
+                                </h3>
+
+                                <p className="text-gray-600 mt-4 leading-7">
+                                    {step.description}
+                                </p>
+                            </div>
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+
+                {/* Navigation */}
+                <div className="flex justify-center gap-4 mt-8">
+                    <button
                         className="
-                        bg-white
-                        rounded-3xl
-                        p-8
-                        shadow-sm
-                        hover:shadow-2xl
+                        process-prev
+                        w-12 h-12
+                        rounded-full
+                        bg-[#1845B5]
+                        text-white
+                        flex items-center justify-center
+                        shadow-lg
+                        hover:scale-110
                         transition-all
-                        duration-500
-                        hover:-translate-y-2
-                        border
-                        border-gray-100
-                        h-full
                         "
                     >
-                        <div
-                        className={`w-14 h-14 rounded-2xl bg-gradient-to-r ${step.color}
-                        text-white flex items-center justify-center mb-6`}
-                        >
-                        {step.icon}
-                        </div>
+                        <ArrowLeft size={20} />
+                    </button>
 
-                        <span className="text-sm font-bold text-blue-600">
-                        STEP {index + 1}
-                        </span>
+                    <button
+                        className="
+                        process-next
+                        w-12 h-12
+                        rounded-full
+                        bg-[#1845B5]
+                        text-white
+                        flex items-center justify-center
+                        shadow-lg
+                        hover:scale-110
+                        transition-all
+                        "
+                    >
+                        <ArrowRight size={20} />
+                    </button>
+                </div>
 
-                        <h3 className="text-2xl font-bold text-[#1845B5] mt-3">
-                        {step.title}
-                        </h3>
-
-                        <p className="text-gray-600 mt-3 leading-8">
-                        {step.description}
-                        </p>
-                    </div>
-                    </SwiperSlide>
-                ))}
-                </Swiper>
-                <div>
-                <button className="process-next w-12 h-12 rounded-full border border-blue-200 bg-[#1845B5] text-white flex items-center justify-center hover:bg-[#1845B5] hover:text-white transition-all duration-300 shadow-sm">
-                    <ArrowRight />
-                </button>
-            </div>
             </div>
 
             {/* Policy Notice */}
 
-            <div className="mt-20 bg-[#1845B5] rounded-3xl p-10 text-white">
-            <h3 className="text-3xl font-bold mb-4">
-                Responsible Borrowing Policy
-            </h3>
+            <div className="mt-16 bg-[#1845B5] rounded-3xl p-6 md:p-10 text-white">
+                <h3 className="text-2xl md:text-3xl font-bold mb-4">
+                    Responsible Borrowing Policy
+                </h3>
 
-            <p className="text-blue-100 leading-8">
-                To safeguard employees from excessive debt obligations, the platform
-                limits salary advances to a maximum of <strong>two-thirds (2/3)</strong>
-                of the employee's monthly basic salary. This ensures employees retain
-                sufficient income for living expenses, existing commitments, and
-                financial stability while benefiting from short-term financial support.
-            </p>
+                <p className="text-blue-100 leading-7 md:leading-8">
+                    To safeguard employees from excessive debt obligations, the platform
+                    limits salary advances to a maximum of <strong>two-thirds (2/3)</strong>
+                    of the employee's monthly basic salary. This ensures employees retain
+                    sufficient income for living expenses, existing commitments, and
+                    financial stability while benefiting from short-term financial support.
+                </p>
             </div>
 
         </div>
