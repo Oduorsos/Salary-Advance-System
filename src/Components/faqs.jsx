@@ -170,9 +170,10 @@ export default function FAQs() {
                 platform works.
             </p>
 
-            <a href="/contact-us" className="mt-8 bg-none bg-white text-[#1845B5] px-8 py-4 rounded-full font-semibold hover:scale-105 transition">
+            <button onClick={() => (window.location.href = "/contact-us")}
+                className="mt-8 bg-none bg-white text-[#1845B5] px-8 py-4 rounded-full font-semibold hover:scale-105 transition">
                 Contact Us
-            </a>
+            </button>
 
             </div>
 
