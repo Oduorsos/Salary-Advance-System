@@ -7,7 +7,7 @@ import {
     Handshake,
     } from "lucide-react";
 
-    export default function partnersSection() {
+    export default function PartnersSection() {
     const partners = [
         {
         icon: <Building2 size={32} />,
